@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizô, gata?!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Organizô, gata?!</div>
+      <div class="menu">
+        <button onclick="goToPage('index.html')">Visão geral</button>
+        <button onclick="goToPage('lancamentos.html')">Lançamentos</button>
+        <button onclick="goToPage('relatorios.html')">Relatórios</button>
+        <button onclick="goToPage('limites.html')">Limite de gastos</button>
+        <button onclick="goToPage('banco.html')">Conexão bancária</button>
+        <i class="icon" id="notificacoes">🔔</i>
+        <i class="icon" id="configuracoes">⚙️</i>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Organizô, gata?!</h1>
+    <h3>Controle financeiro</h3>
+
+    <div class="navigation">
+      <button onclick="mudarMes(-1)" id="mesAnterior"></button>
+      <span id="mesAtualNome"></span>
+      <button onclick="mudarMes(1)" id="mesProximo"></button>
+    </div>
+
+    <form id="formulario">
+      <label>Data: <input type="date" id="data"></label>
+      <label>Descrição: <input type="text" id="descricao"></label>
+      <label>Valor: <input type="number" id="valor" step="0.01"></label>
+      <label>
+        Tipo:
+        <select id="tipo">
+          <option value="receita">Receita</option>
+          <option value="despesa">Despesa</option>
+        </select>
+      </label>
+      <label>
+        Fixo?
+        <select id="fixo">
+          <option value="nao">Não</option>
+          <option value="sim">Sim</option>
+        </select>
+      </label>
+      <button type="submit">Adicionar</button>
+    </form>
+
+    <ul id="lista-lancamentos"></ul>
+
+    <div class="resumo">
+      <p>Receitas: R$ <span id="total-receitas">0,00</span></p>
+      <p>Despesas: R$ <span id="total-despesas">0,00</span></p>
+      <p>Saldo: R$ <span id="saldo-final">0,00</span></p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
